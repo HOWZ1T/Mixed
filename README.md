@@ -7,16 +7,16 @@ Copyright 2018 Dylan Randall. All rights reserved.<br>
 License: [Mozilla Public License Version 2.0](LICENSE)<br>
 Email: [dylan.d.randall@gmail.com](mailto:dylan.d.randall@gmail.com)
 <br><br><br>
-[Click To View Documentation](https://godoc.org/github.com/HOWZ1T/MixedLists)
+[Click To View Documentation](https://godoc.org/github.com/HOWZ1T/MixedList)
 
 ## Installation
 ```bash
-go get github.com/HOWZ1T/MixedLists
+go get github.com/HOWZ1T/MixedList
 ```
 
 ## Import
 ```go
-import "github.com/HOWZ1T/MixedLists"
+import "github.com/HOWZ1T/MixedList"
 ```
 
 ## Functions
