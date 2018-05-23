@@ -1,4 +1,4 @@
-![mixed list image](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv4i_os3f2n8x7JtN3PPFOWTJzt1d1ckAZomrV9_ohbh22DRqQ)
+![mixed list image](Mixed Lists.png)
 
 # MixedList
 MixedList provides a list data type capable of storing values of various data types.
