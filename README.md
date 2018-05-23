@@ -19,19 +19,21 @@ go get github.com/HOWZ1T/Mixed
 import "github.com/HOWZ1T/Mixed"
 ```
 
-## Functions
-- Has
-- Append
-- Extend
-- Insert
-- Pop
-- Clear
-- Index
-- Size
-- Reverse
-- Copy
-- Equals
-- EqualsIgnoreCase
+## Types
+- List
+    - Functions
+        - Has
+        - Append
+        - Extend
+        - Insert
+        - Pop
+        - Clear
+        - Index
+        - Size
+        - Reverse
+        - Copy
+        - Equals
+        - EqualsIgnoreCase
 
 ## Author & Licensing
  Copyright Dylan Randall - 2018<br>
