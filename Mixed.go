@@ -76,7 +76,9 @@ func (lst *List) Clear() {
 // If the item is not in the list a ValueError with an index of -1 is returned
 func (lst List) IndexOf(item interface{}) (error, int) {
 	for i := 0; i < len(lst); i++ {
-		if lst[i] == item { return nil, i }
+		if lst[i] == item {
+			return nil, i
+		}
 	}
 
 	return fmt.Errorf("mixed: ValueError: '%v' is not in the list", item), -1
@@ -93,7 +95,7 @@ func (lst *List) Reverse() {
 	size := len(pval)
 
 	for i := 0; i < size/2; i++ {
-		j := size-i-1
+		j := size - i - 1
 
 		tmp := pval[j]
 		pval[j] = pval[i]
@@ -111,10 +113,14 @@ func (lst List) Copy() List {
 // Equals compares the list against another list for equality.
 // Returns a bool, true denoting equal lists, and false denoting unequal lists
 func (lst List) Equals(list List) bool {
-	if len(lst) != len(list) { return false }
+	if len(lst) != len(list) {
+		return false
+	}
 
 	for i := 0; i < len(lst); i++ {
-		if lst[i] != list[i] { return false }
+		if lst[i] != list[i] {
+			return false
+		}
 	}
 
 	return true
@@ -122,7 +128,9 @@ func (lst List) Equals(list List) bool {
 
 // EqualsIgnoreCase similar too Equals however, when comparing strings it ignores case
 func (lst List) EqualsIgnoreCase(list List) bool {
-	if len(lst) != len(list) { return false }
+	if len(lst) != len(list) {
+		return false
+	}
 
 	for i := 0; i < len(lst); i++ {
 		if strings.ToLower(reflect.TypeOf(lst[i]).String()) == "string" && strings.ToLower(reflect.TypeOf(list[i]).String()) == "string" {
