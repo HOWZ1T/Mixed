@@ -38,7 +38,8 @@ import "github.com/HOWZ1T/MixedList"
  License: [Mozilla Public License Version 2.0](README.md)
 
 ## Contribution
- Contributions are always appreciated.
+ Contributions are always appreciated.<br>
+ 
  Contributions need to:
   - provide go unit tests
   - follow standard go code styling
