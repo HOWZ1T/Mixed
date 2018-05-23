@@ -1,4 +1,4 @@
-![mixed list image](Mixed Lists.png)
+![mixed list image](mixed.png)
 
 # MixedList
 MixedList provides a list data type capable of storing values of various data types.
