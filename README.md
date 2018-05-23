@@ -17,7 +17,7 @@
 
 # Author & Licensing
 - ### Copyright Dylan Randall - 2018
-- ### License: (Mozilla Public License Version 2.0)[README.md]
+- ### License: [Mozilla Public License Version 2.0](README.md)
 
 # Contribution
  ### Contributions are always appreciated.
