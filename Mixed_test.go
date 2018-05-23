@@ -3,7 +3,7 @@ package mixed
 import "testing"
 
 func TestVaryingDataTypes(t *testing.T) {
-	lst := MixedList{1, "a string", 3.23, 3.1456789, float32(12.12345)}
+	lst := List{1, "a string", 3.23, 3.1456789, float32(12.12345)}
 
 	if lst == nil {
 		t.Errorf("mixed: could not handle varying data types")
@@ -11,7 +11,7 @@ func TestVaryingDataTypes(t *testing.T) {
 }
 
 func TestHas(t *testing.T) {
-	lst := MixedList{1, "a string", 3.23, 3.1456789, float32(12.12345)}
+	lst := List{1, "a string", 3.23, 3.1456789, float32(12.12345)}
 
 	if lst.Has("a string") == false {
 		t.Errorf("mixed: Has: expected true, got false for Has(\"a string\")")
@@ -23,26 +23,26 @@ func TestHas(t *testing.T) {
 }
 
 func TestAppend(t *testing.T) {
-	lst := MixedList{1, 2, 3}
+	lst := List{1, 2, 3}
 	lst.Append(4)
 
 	if lst.Has(4) == false {
-		t.Errorf("mixed: Append failed, expected: %v, got: %v", MixedList{1, 2, 3, 4}, lst)
+		t.Errorf("mixed: Append failed, expected: %v, got: %v", List{1, 2, 3, 4}, lst)
 	}
 }
 
 func TestExtend(t *testing.T) {
-	lst := MixedList{1}
-	lst.Extend(MixedList{2, 3, 4})
+	lst := List{1}
+	lst.Extend(List{2, 3, 4})
 
 	if lst.Has(4) == false {
-		t.Errorf("mixed: Append failed, expected: %v, got: %v", MixedList{1, 2, 3, 4}, lst)
+		t.Errorf("mixed: Append failed, expected: %v, got: %v", List{1, 2, 3, 4}, lst)
 	}
 }
 
 func TestEquals(t *testing.T) {
-	lstA := MixedList{1, "two", 3.33}
-	lstB := MixedList{1, "two", 3.33}
+	lstA := List{1, "two", 3.33}
+	lstB := List{1, "two", 3.33}
 
 	if lstA.Equals(lstB) == false {
 		t.Errorf("mixed: Equals, expected: true, got: false")
@@ -55,8 +55,8 @@ func TestEquals(t *testing.T) {
 }
 
 func TestEqualsIgnoreCase(t *testing.T) {
-	lstA := MixedList{1, "two", 3.33, "FOUR"}
-	lstB := MixedList{1, "two", 3.33, "four"}
+	lstA := List{1, "two", 3.33, "FOUR"}
+	lstB := List{1, "two", 3.33, "four"}
 
 	if lstA.EqualsIgnoreCase(lstB) == false {
 		t.Errorf("mixed: Equals, expected: true, got: false")
@@ -69,39 +69,39 @@ func TestEqualsIgnoreCase(t *testing.T) {
 }
 
 func TestInsert(t *testing.T) {
-	lst := MixedList{1, 3, 4}
+	lst := List{1, 3, 4}
 	lst.Insert(1, 2)
 
-	if lst.Equals(MixedList{1, 2, 3, 4}) == false {
-		t.Errorf("mixed: Insert, expected: %v, got: %v", MixedList{1, 2, 3, 4}, lst)
+	if lst.Equals(List{1, 2, 3, 4}) == false {
+		t.Errorf("mixed: Insert, expected: %v, got: %v", List{1, 2, 3, 4}, lst)
 	}
 }
 
 func TestPop(t *testing.T) {
-	lst := MixedList{1, 5, 2, 3}
+	lst := List{1, 5, 2, 3}
 	_, poppedValue := lst.Pop(1)
 
 	if poppedValue != 5 {
 		t.Errorf("mixed: Pop, expected: %v, got: %v", 5, poppedValue)
 	}
 
-	if lst.Equals(MixedList{1, 2, 3}) == false {
-		t.Errorf("mixed: Pop, expected: %v, got: %v", MixedList{1, 2, 3}, lst)
+	if lst.Equals(List{1, 2, 3}) == false {
+		t.Errorf("mixed: Pop, expected: %v, got: %v", List{1, 2, 3}, lst)
 	}
 }
 
 func TestClear(t *testing.T) {
-	lst := MixedList{"I", "am", "not", "clear"}
+	lst := List{"I", "am", "not", "clear"}
 	lst.Clear()
 
-	if lst.Equals(MixedList{}) == false {
-		t.Errorf("mixed: Clear, expected: %v, got: %v", MixedList{}, lst)
+	if lst.Equals(List{}) == false {
+		t.Errorf("mixed: Clear, expected: %v, got: %v", List{}, lst)
 	}
 }
 
 func TestIndex(t *testing.T) {
-	lst := MixedList{"zero", "one", "two", "three", "four"}
-	err, index := lst.Index("two")
+	lst := List{"zero", "one", "two", "three", "four"}
+	err, index := lst.IndexOf("two")
 
 	if err != nil {
 		t.Errorf("mixed: Index, expected: no error, got: error: %s", err)
@@ -113,7 +113,7 @@ func TestIndex(t *testing.T) {
 }
 
 func TestSize(t *testing.T) {
-	lst := MixedList{1, 2, 3, 4, 5}
+	lst := List{1, 2, 3, 4, 5}
 	size := lst.Size()
 
 	if size != 5 {
@@ -122,29 +122,29 @@ func TestSize(t *testing.T) {
 }
 
 func TestReverse(t *testing.T) {
-	lst := MixedList{1, 2, 3, 4}
-	lst1 := MixedList{1, 2, 3}
+	lst := List{1, 2, 3, 4}
+	lst1 := List{1, 2, 3}
 
 	lst.Reverse()
 	lst1.Reverse()
 
-	if lst.Equals(MixedList{4, 3, 2, 1}) == false {
-		t.Errorf("mixed: Reverse, expected: %d, got: %d", MixedList{4, 3, 2, 1}, lst)
+	if lst.Equals(List{4, 3, 2, 1}) == false {
+		t.Errorf("mixed: Reverse, expected: %d, got: %d", List{4, 3, 2, 1}, lst)
 	}
 
-	if lst1.Equals(MixedList{3, 2, 1}) == false {
-		t.Errorf("mixed: Reverse, expected: %d, got: %d", MixedList{3, 2, 1}, lst1)
+	if lst1.Equals(List{3, 2, 1}) == false {
+		t.Errorf("mixed: Reverse, expected: %d, got: %d", List{3, 2, 1}, lst1)
 	}
 }
 
 func TestCopy(t *testing.T) {
-	lst := MixedList{1, 2, 3, 4}
+	lst := List{1, 2, 3, 4}
 	lst1 := lst.Copy()
 
 	//Modifying original lst to ensure the copied list is not referencing the original list
 	lst.Clear()
 
-	if lst1.Equals(MixedList{1, 2, 3, 4}) == false {
-		t.Errorf("mixed: Copy, expected: %d, got: %d", MixedList{1, 2, 3, 4}, lst)
+	if lst1.Equals(List{1, 2, 3, 4}) == false {
+		t.Errorf("mixed: Copy, expected: %d, got: %d", List{1, 2, 3, 4}, lst)
 	}
 }

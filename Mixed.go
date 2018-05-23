@@ -74,7 +74,7 @@ func (lst *List) Clear() {
 
 // Index returns the index of the first matched item.
 // If the item is not in the list a ValueError with an index of -1 is returned
-func (lst List) Index(item interface{}) (error, int) {
+func (lst List) IndexOf(item interface{}) (error, int) {
 	for i := 0; i < len(lst); i++ {
 		if lst[i] == item { return nil, i }
 	}
