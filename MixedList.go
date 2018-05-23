@@ -1,6 +1,6 @@
-/* Copyright 2018 Dylan Randall. All rights reserved.
-   Use of this source code is governed by a Mozilla Public License 2.0
-   license that can be found in the LICENSE file. */
+/*Copyright 2018 Dylan Randall. All rights reserved.
+Use of this source code is governed by a Mozilla Public License 2.0
+license that can be found in the LICENSE file. */
 package MixedList
 
 import (
@@ -11,8 +11,8 @@ import (
 )
 
 // MixedList Errors:
-// 	- IndexOutOfBounds indicates that an given index has exceeded
-// 	  the boundaries of an array/list data type
+//	- IndexOutOfBounds indicates that an given index has exceeded
+//	  the boundaries of an array/list data type
 var IndexOutOfBounds = errors.New("MixedList: IndexOutOfBounds: the given index exceeds the boundaries of the list")
 
 // MixedList provides a list that is capable of storing values of varying types.
