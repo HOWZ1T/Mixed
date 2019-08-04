@@ -6,7 +6,6 @@ package mixed
 import (
 	"errors"
 	"fmt"
-	"reflect"
 	"strings"
 )
 
@@ -118,6 +117,7 @@ func (lst List) Equals(list List) bool {
 	}
 
 	for i := 0; i < len(lst); i++ {
+		// negative check to end the for loop as soon as an inequality is found
 		if lst[i] != list[i] {
 			return false
 		}
@@ -126,21 +126,25 @@ func (lst List) Equals(list List) bool {
 	return true
 }
 
-// EqualsIgnoreCase similar too Equals however, when comparing strings it ignores case
+// EqualsIgnoreCase similar to Equals however, when comparing strings it ignores case
 func (lst List) EqualsIgnoreCase(list List) bool {
 	if len(lst) != len(list) {
 		return false
 	}
 
 	for i := 0; i < len(lst); i++ {
-		if strings.ToLower(reflect.TypeOf(lst[i]).String()) == "string" && strings.ToLower(reflect.TypeOf(list[i]).String()) == "string" {
-			sA := strings.ToLower(lst[i].(string))
-			sB := strings.ToLower(list[i].(string))
+		// comma, ok pattern to type check that the items are strings
+		valA, okA := lst[i].(string)
+		valB, okB := list[i].(string)
 
-			if sA != sB {
-				return false
-			}
-		} else if lst[i] != list[i] {
+		// if both items are strings perform ToLower to equalize the case
+		if okA && okB {
+			valA = strings.ToLower(valA)
+			valB = strings.ToLower(valB)
+		}
+
+		// negative check to end the for loop as soon as an inequality is found
+		if valA != valB {
 			return false
 		}
 	}
